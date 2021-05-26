@@ -57,14 +57,7 @@
 			    "alphabetize": { "order": "asc", "ignoreCase": true }
 			  }
 			],
-			"import/no-extraneous-dependencies": [
-			  "error",
-        "ignorePackages",
-        {
-          "ts": "never"
-        },
-			  { "devDependencies": true }
-			]
+			"import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
     },
     "settings": {
         "import/resolver": {
