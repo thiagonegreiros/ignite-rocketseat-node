@@ -12,4 +12,5 @@ categoriesRoutes.post("/", (request, response) => {
 categoriesRoutes.get("/", (request, response) => {
   return listCategoriesController.handle(request, response);
 });
+
 export { categoriesRoutes };
