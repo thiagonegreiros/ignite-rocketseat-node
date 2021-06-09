@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info":{
-    "title": "RentalX Documentation",
+    "title": "RentX Documentation",
     "description": "This is a API Rent",
     "version": "1.0.0",
     "contact":{
@@ -67,6 +67,70 @@
               }
             }
           }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Upĺoad new Category",
+        "description": "Upload new Category",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type":"object",
+                "properties":{
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Create a Specification",
+        "description": "Create a new Specification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Specification"
+              }
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description": "Created"
+          },
+          "500":{
+            "description": "Specification Already exists"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties":{
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
         }
       }
     }
