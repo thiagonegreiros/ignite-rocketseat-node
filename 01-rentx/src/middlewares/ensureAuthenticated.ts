@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
+import { AppError } from "../errors/AppError";
 import { UsersRepository } from "../modules/accounts/repositories/implementations/UsersRepository";
 
 interface IPayLoad {
@@ -16,7 +17,7 @@ export async function ensureAuthenticated(
 
   // TODO: Verificar se o authHeader está preenchido
   if (!authHeader) {
-    throw new Error("Token missing");
+    throw new AppError("Token missing", 401);
   }
 
   const [, token] = authHeader.split(" ");
@@ -31,11 +32,11 @@ export async function ensureAuthenticated(
     const user = usersRepository.findById(user_id);
 
     if (!user) {
-      throw new Error(`This user does not exists`);
+      throw new AppError(`This user does not exists`, 401);
     }
 
     next();
   } catch (e) {
-    throw new Error(`Invalid token`);
+    throw new AppError(`Invalid token`, 401);
   }
 }
