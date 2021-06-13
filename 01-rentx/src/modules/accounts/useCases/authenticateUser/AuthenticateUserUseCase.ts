@@ -25,21 +25,18 @@ export class AuthenticateUserUseCase {
   ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
-    // TODO: Verificar se o usuario existe
     const user = await this.userRepository.findByEmail(email);
 
     if (!user) {
       throw new Error(`Email or password is incorrect`);
     }
 
-    // TODO: Verificar se a senha está correta
     const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
       throw new Error(`Email or password is incorrect`);
     }
 
-    // TODO: Gerar o jsonwebtoken
     const token = sign({}, "7d9f9bb5e510693cdf614678b0a17f22", {
       subject: user.id,
       expiresIn: "1d",
