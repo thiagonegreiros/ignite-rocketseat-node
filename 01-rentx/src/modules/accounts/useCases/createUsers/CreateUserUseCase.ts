@@ -3,13 +3,13 @@ import { inject, injectable } from "tsyringe";
 
 import { AppError } from "../../../../errors/AppError";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { UsersRepository } from "../../repositories/implementations/UsersRepository";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 @injectable()
 export class CreateUserUseCase {
   constructor(
     @inject("UsersRepository")
-    private usersRepository: UsersRepository
+    private usersRepository: IUsersRepository
   ) {}
 
   async execute({
@@ -18,9 +18,7 @@ export class CreateUserUseCase {
     password,
     driver_license,
   }: ICreateUserDTO): Promise<void> {
-    const userAlreadyExist = this.usersRepository.findByEmail(email);
-
-    console.log(userAlreadyExist);
+    const userAlreadyExist = await this.usersRepository.findByEmail(email);
 
     if (userAlreadyExist) {
       throw new AppError(`User already exist`);
