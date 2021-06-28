@@ -64,3 +64,19 @@
   docker-compose stop
 ```
 
+## Testes
+
+### Testes unitários 
+
+* É quando pegamos uma parte da aplicação, da funcionalidade.
+
+* Testar a regra de negocios da nossa aplicação.
+
+* Serve para garantir que a nossa logica de negocio estão corretos, tanto nos casos de sucesso quanto nos casos de erro.
+
+
+### Testes de integração
+
+* Serve para quando queremos testar a aplicação de uma forma geral.
+
+* Testa o fluxo completo da nossa aplicação.
