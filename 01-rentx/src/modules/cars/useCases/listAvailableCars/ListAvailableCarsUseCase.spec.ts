@@ -1,6 +1,6 @@
 import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 
-import { ListCarsUseCase } from "./ListCarsUseCase";
+import { ListCarsUseCase } from "./ListAvailableCarsUseCase";
 
 let listCarsUseCase: ListCarsUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
