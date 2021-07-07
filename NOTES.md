@@ -80,3 +80,6 @@
 * Serve para quando queremos testar a aplicação de uma forma geral.
 
 * Testa o fluxo completo da nossa aplicação.
+
+
+Filter retona uma lista, o find retorna apenas um.
