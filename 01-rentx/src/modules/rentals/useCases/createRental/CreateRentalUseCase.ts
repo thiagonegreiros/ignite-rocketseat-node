@@ -50,8 +50,6 @@ export class CreateRentalUseCase {
       expect_return_date
     );
 
-    console.log(compare);
-
     if (compare < MINIMUM_HOUR) {
       throw new AppError(`Invalid return time`);
     }
