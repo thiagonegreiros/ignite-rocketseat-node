@@ -5,15 +5,15 @@ import { ensureAuthenticated } from "@shared/infra/http/middlewares/ensureAuthen
 
 import { ensureAdmin } from "../middlewares/ensureAdmin";
 
-const specificarionsRoutes = Router();
+const specificationsRoutes = Router();
 const createSpecificationController = new CreateSpecificationController();
 
 // specificarionsRoutes.use(ensureAuthenticated);
-specificarionsRoutes.post(
+specificationsRoutes.post(
   "/",
   ensureAuthenticated,
   ensureAdmin,
   createSpecificationController.handle
 );
 
-export { specificarionsRoutes };
+export { specificationsRoutes };
