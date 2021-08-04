@@ -16,11 +16,16 @@ export class CreateUserService {
     }).exec();
 
     if (userAlreadyExists) {
-      const user = await User.findByIdAndUpdate({
-        _id: userAlreadyExists._id
-      }, {
+      const user = await User.findOneAndUpdate(
+        {
+          _id: userAlreadyExists._id
+        }, {
         $set: { socket_id, avatar, name }
-      });
+      },
+        {
+          new: true
+        }
+      );
 
       return user;
     } else {
