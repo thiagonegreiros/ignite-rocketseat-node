@@ -12,7 +12,9 @@
     "@middy/http-json-body-parser": "^2.5.3",
     "chrome-aws-lambda": "^10.1.0",
     "dayjs": "^1.10.7",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "puppeteer": "^13.0.1",
+    "puppeteer-core": "^13.0.1"
   },
   "devDependencies": {
     "@serverless/typescript": "^2.23.0",
